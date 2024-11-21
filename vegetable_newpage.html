@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Store</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        /* Header styling */
+        header {
+            background-color: #f54a2a; /* Orange navbar */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+nav {
+    display: flex;
+    justify-content: center; /* नेविगेशन को सेंटर में रखें */
+    gap: 20px; /* नेविगेशन आइटम्स के बीच जगह */
+    flex: 1; /* नेविगेशन बार को उपलब्ध जगह भरने दें */
+}
+
+.search-container {
+    display: flex;
+    align-items: center; /* सर्च आइकन और इनपुट को वर्टिकली सेंटर करें */
+    margin-right: 20px; /* थोड़ा दायां मार्जिन */
+}
+
+.search-container input {
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s, opacity 0.3s;
+    visibility: hidden;
+}
+
+.search-container input.active {
+    width: 200px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-container i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+header .cart-icon {
+    margin-left: 20px; /* सर्च आइकन और कार्ट के बीच थोड़ी जगह */
+}
+
+       header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+       header img {
+            width: 30px; /* Adjust image size */
+            height: auto;
+        }
+     nav {
+    display: flex;
+    justify-content: center; /* Center alignment */
+    gap: 20px;
+    flex-grow: 1; /* Nav को उपलब्ध space का उपयोग करने की अनुमति देगा */
+}
+.actions {
+    display: flex;
+    align-items: center; /* सर्च और कार्ट आइकन को वर्टिकली सेंटर करें */
+    gap: 5px;}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1em;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+text-align: center;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+        .product-card h3 {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+        .product-card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .stars {
+            color: #ff9800;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+            color: white;
+            background-color: #ff4d4d;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #e63939;
+        }
+footer {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Sunnify</div>
+<nav>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\new_page.html">HOME</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\products_newpage.html">PRODUCTS</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\features_newpage.html">FEATURES</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\about_newpage.html">ABOUT US</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\feedback_newpage.html">FEEDBACK</a>
+</nav>  
+<div class="actions">
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search for products..." onkeyup="searchProducts()">
+            <i class="fas fa-search" onclick="toggleSearchBar()"></i>
+        </div>
+        <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="cart-icon">
+            <img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG38.png" alt="Cart Icon">
+        </a>
+</div>    
+  
+    </header>
+   <div class="container">
+        <h2><span style="color: red;">Vegetables</span></h2>
+        <div class="container">
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://www.pngmart.com/files/15/Eggplant-Brinjal-PNG-Picture.png" alt="Fresh Brinjal">
+                <h3>Fresh Brinjal</h3>
+                <p>1kg - Rs.39.99</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="http://pngimg.com/uploads/onion/onion_PNG3831.png" alt="Fresh Onion">
+                <h3>Fresh Onion</h3>
+                <p>1kg - Rs.73.79</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2023/05/befunky-collageddddfddddddddddddddddffsfddddddcdedfggggfddddsdsdfddfgeeeeedfdddddfffffffffffffffffdd-2023-05-04t232316-1683222815.jpg" alt="Ladies Finger">
+                <h3>Ladies Finger</h3>
+                <p>1kg - Rs.62.49</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="https://freepngimg.com/download/cabbage/11-cabbage-png-image.png" alt="Fresh Cabbage">
+                <h3>Fresh Cabbage</h3>
+                <p>Minimum 2 - Rs.30 each</p>
+                <div class="stars">★★★★★</div>
+                <a href= "C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+<!-- Product 5 -->
+            <div class="product-card">
+                <img src="https://www.health.harvard.edu/media/content/images/p7_Broccoli_HH1812_gi905351392.jpg" alt="Fresh Broccoli">
+                <h3>Fresh Broccoli</h3>
+                <p>1Kg - Rs. 120</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+<!-- Product 6 -->
+            <div class="product-card">
+                <img src="https://www.pngall.com/wp-content/uploads/8/Green-Chilli-Pepper-PNG-Image.png" alt="Green Chilli">
+                <h3>Green Chilli</h3>
+                <p>100g - Rs. 12.00</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+<!-- Product 7 -->
+            <div class="product-card">
+                <img src="https://seedsnpots.com/wp-content/uploads/2017/09/greencapsicum.jpg" alt="Capsicum Green">
+                <h3>Capsicum Green</h3>
+                <p>250g - Rs. 40.00</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+<!-- Product 8 -->
+            <div class="product-card">
+                <img src="https://exoticvegetablespune.com/wp-content/uploads/2020/11/RED-CAPSICUM.png" alt="Capsicum Red">
+                <h3>Capsicum Red</h3>
+                <p>250g - Rs. 37.00</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+<!-- Product 9 -->
+            <div class="product-card">
+                <img src="https://www.csrorganics.com/image/cache/catalog/Product/seeds/chilli/yellow-capsicum-seeds-1000x1000.png" alt="Capsicum Yellow">
+                <h3>Capsicum Yellow</h3>
+                <p>250g - Rs. 39.00</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+<!-- Product 10 -->
+            <div class="product-card">
+                <img src="https://images5.alphacoders.com/420/thumb-1920-420022.jpg" alt="Fresh Tomato">
+                <h3>Fresh Tomato</h3>
+                <p>1Kg - Rs. 80.00</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+<!-- Product 11 -->
+            <div class="product-card">
+                <img src="https://images.ctfassets.net/ruek9xr8ihvu/6NRIKl9ZKsl0PvULH1OIRA/a3bee5c7e4ac32b7a41a26f7b178c224/Green-Bean-scaled.jpg" alt="Beans">                
+                <h3>Beans</h3>
+                <p>250g - Rs. 25.00</p>
+                <div class="stars">★★★★★</div>
+                <a href= "C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+<!-- Product 12 -->
+            <div class="product-card">
+                <img src="https://www.thespruceeats.com/thmb/dnV3nNBICc36Jcwou6u-X3o0rx8=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-116360266-57fa9c005f9b586c357e92cd.jpg" alt="Ginger">                
+                <h3>Ginger</h3>
+                <p>100g - Rs. 15.99</p>
+                <div class="stars">★★★★★</div>
+                <a href= "C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+<!-- Product 13 -->
+            <div class="product-card">
+                <img src="https://cdn.pixabay.com/photo/2021/08/09/21/49/bitter-gourd-6534407_1280.jpg" alt="Bitter Gourd">                
+                <h3>Bitter Gourd</h3>
+                <p>250g - Rs. 37.00</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+<!-- Product 14 -->
+            <div class="product-card">
+                <img src="https://www.healthbenefitstimes.com/9/gallery/potato-1/Potatoes.jpg" alt="Potato">                
+                <h3>Potato</h3>
+                <p>1Kg - Rs. 20.00</p>
+                <div class="stars">★★★★★</div>
+                <a href= "C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+<!-- Product 15 -->
+            <div class="product-card">
+                <img src="https://wallup.net/wp-content/uploads/2019/09/6604-fresh-green-peas.jpg" alt="Green Peas">                
+                <h3>Green Peas</h3>
+                <p>1Kg - Rs. 50.00</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+<!-- Product 16 -->
+            <div class="product-card">
+                <img src="https://www.finedininglovers.com/sites/g/files/xknfdk626/files/2020-12/raw_white_daikon_radish%C2%A9iStock.jpg" alt="Radish">                
+                <h3>Radish</h3>
+                <p>4 pieces - Rs. 40.00</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+
+        </div>
+    </div>
+<footer>
+        Created by Shop With Sunny | All Rights Reserved
+    </footer>
+<script>
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const productCard = button.closest('.product-card');
+        const productName = productCard.querySelector('h3').textContent;
+        const productPrice = parseFloat(productCard.querySelector('p').textContent.match(/Rs\.\s?([\d.]+)/)[1]);
+
+        // Add product to cart
+        const existingItem = cart.find(item => item.name === productName);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({ name: productName, price: productPrice, quantity: 1 });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${productName} added to cart!`);
+    });
+});
+</script>
+</body>
+</html>

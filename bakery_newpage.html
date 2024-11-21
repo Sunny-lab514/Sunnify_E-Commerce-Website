@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Store - Bakery & Dairy Products</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+                /* Header styling */
+        header {
+            background-color: #f54a2a; /* Orange navbar */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+nav {
+    display: flex;
+    justify-content: center; /* नेविगेशन को सेंटर में रखें */
+    gap: 20px; /* नेविगेशन आइटम्स के बीच जगह */
+    flex: 1; /* नेविगेशन बार को उपलब्ध जगह भरने दें */
+}
+
+.search-container {
+    display: flex;
+    align-items: center; /* सर्च आइकन और इनपुट को वर्टिकली सेंटर करें */
+    margin-right: 20px; /* थोड़ा दायां मार्जिन */
+}
+
+.search-container input {
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s, opacity 0.3s;
+    visibility: hidden;
+}
+
+.search-container input.active {
+    width: 200px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-container i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+header .cart-icon {
+    margin-left: 20px; /* सर्च आइकन और कार्ट के बीच थोड़ी जगह */
+}
+
+       header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+       header img {
+            width: 30px; /* Adjust image size */
+            height: auto;
+        }
+     nav {
+    display: flex;
+    justify-content: center; /* Center alignment */
+    gap: 20px;
+    flex-grow: 1; /* Nav को उपलब्ध space का उपयोग करने की अनुमति देगा */
+}
+.actions {
+    display: flex;
+    align-items: center; /* सर्च और कार्ट आइकन को वर्टिकली सेंटर करें */
+    gap: 5px;}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1em;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+        .product-card h3 {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+        .product-card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .stars {
+            color: #ff9800;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+            color: white;
+            background-color: #ff4d4d;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #e63939;
+        }
+footer {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header><div class="logo">Sunnify</div>
+<nav>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\new_page.html">HOME</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\products_newpage.html">PRODUCTS</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\features_newpage.html">FEATURES</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\about_newpage.html">ABOUT US</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\feedback_newpage.html">FEEDBACK</a>
+</nav>    
+<div class="actions">
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search for products..." onkeyup="searchProducts()">
+            <i class="fas fa-search" onclick="toggleSearchBar()"></i>
+        </div>
+        <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="cart-icon">
+            <img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG38.png" alt="Cart Icon">
+        </a>
+</div>    
+           
+ </header>
+    <div class="container">
+
+   <h2><span style="color: red;">Bakery & Dairy Products</span></h2>
+        <div class="container">
+     <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://img.freepik.com/premium-photo/toast-rusk-white-table_1396-542.jpg?w=2000" alt="Rusk Toast">
+                <h3>Srisan Bake Rusk Toast</h3>
+                <p>500g - ₹50</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://s3.ap-south-1.amazonaws.com/diingdong/1611217377_61r2IZDTW-L._SL1500_.jpg" alt="Amul Butter">
+                <h3>Amul Pasteurized Butter</h3>
+                <p>500g - ₹250</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://www.queensleeappetit.com/wp-content/uploads/2020/10/classic-chocolate-milkshake-recipe-7-2.jpg" alt="Dark Fantasy Chocolate Shake">
+                <h3>Dark Fantasy Chocolate Shake</h3>
+                <p>200ml - ₹40</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="http://static1.squarespace.com/static/612d4825ee7c3b7ba3e215b7/612dd348b9b7172b22f7e59d/6178d73da158517ad7d1582d/1635310316916/shutterstock_1096061969.png?format=1500w" alt="Paneer">
+                <h3>Amul Fresh Paneer</h3>
+                <p>200g - ₹80</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 5 -->
+            <div class="product-card">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/711eDJhvEaL._SL1499_.jpg" alt="Cheese">
+                <h3>Britannia Cheese Slices</h3>
+                <p>100g - ₹75</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 6 -->
+            <div class="product-card">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2021/6/ZY/WB/IU/10100178/pasteurized-market-milk-1000x1000.jpg" alt="Milk">
+                <h3>Mother Dairy Full Cream Milk</h3>
+                <p>1L - ₹60</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 7 -->
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/610SWmvS3DL._SL1246_.jpg" alt="Curd">
+                <h3>Nestlé A+ Fresh Dahi</h3>
+                <p>400g - ₹50</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 8 -->
+            <div class="product-card">
+                <img src="https://www.desiclik.com/images/P/SBBBRICHOC.png" alt="Chocolate Cake">
+                <h3>Britannia Chocolate Cake</h3>
+                <p>150g - ₹45</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 9 -->
+            <div class="product-card">
+                <img src="https://www.danone.ca/wp-content/themes/twentyseventeen/assets/images/danactive/update/danactive-product-main.jpg" alt="Yogurt">
+                <h3>Danone Probiotic Yogurt</h3>
+                <p>150g - ₹25</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 10 -->
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/61wT5eptaTL._SL1280_.jpg" alt="Bread">
+                <h3>Modern Multigrain Bread</h3>
+                <p>400g - ₹40</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 11 -->
+            <div class="product-card">
+                <img src="https://product-assets.faasos.io/production/product/image_1657272196421_image_1635342896740_Rich_Red_Velvet_Pastry.jpg" alt="Pastry">
+                <h3>Red Velvet Pastry</h3>
+                <p>Piece - ₹80</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 12 -->
+            <div class="product-card">
+                <img src="https://www.bigbasket.com/media/uploads/p/l/40275806_1-bran-o-ajwain-khari-puff-baked-fresh-snack-option.jpg" alt="Khari">
+                <h3>Fresh Baked Khari</h3>
+                <p>250g - ₹40</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 13 -->
+            <div class="product-card">
+                <img src="https://www.biggerbolderbaking.com/wp-content/uploads/2020/11/Homemade-Dunkin-Donuts-2-scaled.jpg" alt="Donut">
+                <h3>Chocolate Glazed Donut</h3>
+                <p>Piece - ₹50</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 14 -->
+            <div class="product-card">
+                <img src="https://www.graceonline.in/uploads/products/2021/07/28/amul-masti-buttermilk-2001627467139.webp" alt="Buttermilk">
+                <h3>Amul Masti Buttermilk</h3>
+                <p>200ml - ₹15</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 15 -->
+            <div class="product-card">
+                <img src="https://i.ytimg.com/vi/UzwNDho6L8E/maxresdefault.jpg" alt="Puff">
+                <h3>Veg Puff</h3>
+                <p>Piece - ₹25</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 16 -->
+            <div class="product-card">
+                <img src="https://images.freshop.com/00072250903233/2c8bb2e160e91f8fcecdc465543f420a_large.png" alt="Swiss Roll">
+                <h3>Fresh Swiss Roll</h3>
+                <p>150g - ₹60</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+<footer>
+        Created by Shop With Sunny | All Rights Reserved
+    </footer>
+<script>
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const productCard = button.closest('.product-card');
+        const productName = productCard.querySelector('h3').textContent;
+        const productPrice = parseFloat(productCard.querySelector('p').textContent.match(/₹([\d.]+)/)[1]); // Correct price parsing
+
+        // Add product to cart
+        const existingItem = cart.find(item => item.name === productName);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({ name: productName, price: productPrice, quantity: 1 });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${productName} added to cart!`);
+    });
+});
+
+</script>
+</body>
+</html>

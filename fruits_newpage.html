@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Store - Fruits</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+                /* Header styling */
+        header {
+            background-color: #f54a2a; /* Orange navbar */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+nav {
+    display: flex;
+    justify-content: center; /* नेविगेशन को सेंटर में रखें */
+    gap: 20px; /* नेविगेशन आइटम्स के बीच जगह */
+    flex: 1; /* नेविगेशन बार को उपलब्ध जगह भरने दें */
+}
+
+.search-container {
+    display: flex;
+    align-items: center; /* सर्च आइकन और इनपुट को वर्टिकली सेंटर करें */
+    margin-right: 20px; /* थोड़ा दायां मार्जिन */
+}
+
+.search-container input {
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s, opacity 0.3s;
+    visibility: hidden;
+}
+
+.search-container input.active {
+    width: 200px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-container i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+header .cart-icon {
+    margin-left: 20px; /* सर्च आइकन और कार्ट के बीच थोड़ी जगह */
+}
+
+       header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+       header img {
+            width: 30px; /* Adjust image size */
+            height: auto;
+        }
+     nav {
+    display: flex;
+    justify-content: center; /* Center alignment */
+    gap: 20px;
+    flex-grow: 1; /* Nav को उपलब्ध space का उपयोग करने की अनुमति देगा */
+}
+.actions {
+    display: flex;
+    align-items: center; /* सर्च और कार्ट आइकन को वर्टिकली सेंटर करें */
+    gap: 5px;}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1em;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+        .product-card h3 {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+        .product-card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .stars {
+            color: #ff9800;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+            color: white;
+            background-color: #ff4d4d;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #e63939;
+        }
+footer {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+       <div class="logo">Sunnify</div>
+<nav>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\new_page.html">HOME</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\products_newpage.html">PRODUCTS</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\features_newpage.html">FEATURES</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\about_newpage.html">ABOUT US</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\feedback_newpage.html">FEEDBACK</a>
+</nav>    
+<div class="actions">
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search for products..." onkeyup="searchProducts()">
+            <i class="fas fa-search" onclick="toggleSearchBar()"></i>
+        </div>
+        <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="cart-icon">
+            <img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG38.png" alt="Cart Icon">
+        </a>
+</div>    
+
+    </header>
+    <div class="container">
+<h2><span style="color: red;">Fruits</span></h2>
+        <div class="container">
+        <div class="product-grid">
+            <!-- Fruit 1 -->
+            <div class="product-card">
+                <img src="http://pluspng.com/img-png/orange-hd-png-orange-images-orange-hd-wallpaper-and-background-photos-774526-2615.png" alt="Fresh Orange">
+                <h3>Fresh Orange</h3>
+                <p>1kg - Rs. 40.49</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 2 -->
+            <div class="product-card">
+                <img src="http://pngimg.com/uploads/apple/apple_PNG12405.png" alt="Fresh Apple">
+                <h3>Fresh Apple</h3>
+                <p>1kg - Rs. 99.99</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 3 -->
+            <div class="product-card">
+                <img src="https://purepng.com/public/uploads/large/purepng.com-bananafruitsyellowfruit-981524754330lspp8.png" alt="Fresh Banana">
+                <h3>Fresh Banana</h3>
+                <p>1kg - Rs. 29.99</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 4 -->
+            <div class="product-card">
+                <img src="https://pngimg.com/uploads/blueberries/blueberries_PNG8.png" alt="Blueberry">
+                <h3>Blueberry</h3>
+                <p>1kg - Rs. 59.99</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 5 -->
+            <div class="product-card">
+                <img src="https://static.vecteezy.com/system/resources/previews/001/223/778/large_2x/grapes-isolated-on-white-background-free-photo.jpg" alt="Grapes">
+                <h3>Fresh Grapes</h3>
+                <p>1kg - Rs. 69.99</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 6 -->
+            <div class="product-card">
+                <img src="https://dryfruitsmandy.com/wp-content/uploads/2021/04/mango-medium.jpg" alt="Mango">
+                <h3>Fresh Mango</h3>
+                <p>1kg - Rs. 25.00</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 7 -->
+            <div class="product-card">
+                <img src="https://freepngimg.com/thumb/strawberry/15-strawberry-png-images.png" alt="Strawberry">
+                <h3>Strawberry</h3>
+                <p>11 pieces - Rs. 47.49</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 8 -->
+            <div class="product-card">
+                <img src="http://2.bp.blogspot.com/-fxadAknr--E/UpgZ0poSyBI/AAAAAAAABxU/oCMldzw3Isw/s1600/pappaya+copy.jpg#papaya%20fruit%201000x1096" alt="Papaya">
+                <h3>Fresh Papaya</h3>
+                <p>1kg - Rs. 34.49</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 9 -->
+            <div class="product-card">
+                <img src="http://pngimg.com/uploads/pineapple/pineapple_PNG2756.png" alt="Pineapple">
+                <h3>Fresh Pineapple</h3>
+                <p>1kg - Rs. 150</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 10 -->
+            <div class="product-card">
+                <img src="https://wallpapercave.com/wp/wp3400769.jpg" alt="Watermelon">
+                <h3>Watermelon</h3>
+                <p>1 piece -Rs. 32.49</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 11 -->
+            <div class="product-card">
+                <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Kiwi_aka.jpg" alt="Kiwi">
+                <h3>Fresh Kiwi</h3>
+                <p>10 pieces - Rs. 100</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 12 -->
+            <div class="product-card">
+                <img src="http://pluspng.com/img-png/peach-png-peach-png-image-download-image-41687-1338.png" alt="Peach">
+                <h3>Fresh Peach</h3>
+                <p>1kg - Rs. 84.79</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 13 -->
+            <div class="product-card">
+                <img src="https://www.washingtonpost.com/rf/image_1484w/2010-2019/WashingtonPost/2014/01/10/Production/Health/Images/bigstock-Half-of-pomegranate-on-a-white-12359999.jpg?t=20170517" alt="Pomegranate">
+                <h3>Pomegranate</h3>
+                <p>1kg - Rs. 45.00</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 14 -->
+            <div class="product-card">
+                <img src="https://purepng.com/public/uploads/medium/purepng.com-cherriescherryornamental-cherrycherry-blossomstone-fruit-1701527192518ik33p.png" alt="Cherries">
+                <h3>Fresh Cherries</h3>
+                <p>1kg - Rs. 96.99</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 15 -->
+            <div class="product-card">
+                <img src="https://healthjade.com/wp-content/uploads/2018/05/guava-fruit.jpg" alt="Guava">
+                <h3>Fresh Guava</h3>
+                <p>1kg - Rs. 25.00</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Fruit 16 -->
+            <div class="product-card">
+                <img src="https://www.pngarts.com/files/4/Coconut-PNG-Image-Transparent-Background.png" alt="Coconut">
+                <h3>Fresh Coconut</h3>
+                <p>1 piece - Rs. 33.99</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Created by Shop With Sunny | All Rights Reserved
+    </footer>
+<script>
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const productCard = button.closest('.product-card');
+        const productName = productCard.querySelector('h3').textContent;
+        const productPrice = parseFloat(productCard.querySelector('p').textContent.match(/Rs\.\s?([\d.]+)/)[1]);
+
+        // Add product to cart
+        const existingItem = cart.find(item => item.name === productName);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({ name: productName, price: productPrice, quantity: 1 });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${productName} added to cart!`);
+    });
+});
+</script>
+</body>
+</html>

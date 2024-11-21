@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Store - Cleaning & Household</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        /* Header styling */
+       header {
+            background-color: #f54a2a; /* Orange navbar */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+nav {
+    display: flex;
+    justify-content: center; 
+    gap: 20px;
+    flex: 1;
+}
+
+.search-container {
+    display: flex;
+    align-items: center; /* सर्च आइकन और इनपुट को वर्टिकली सेंटर करें */
+    margin-right: 20px; /* थोड़ा दायां मार्जिन */
+}
+
+.search-container input {
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s, opacity 0.3s;
+    visibility: hidden;
+}
+
+.search-container input.active {
+    width: 200px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-container i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+header .cart-icon {
+    margin-left: 20px; /* सर्च आइकन और कार्ट के बीच थोड़ी जगह */
+}
+
+       header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+       header img {
+            width: 30px; /* Adjust image size */
+            height: auto;
+        }
+     nav {
+    display: flex;
+    justify-content: center; /* Center alignment */
+    gap: 20px;
+    flex-grow: 1; /* Nav को उपलब्ध space का उपयोग करने की अनुमति देगा */
+}
+.actions {
+    display: flex;
+    align-items: center; /* सर्च और कार्ट आइकन को वर्टिकली सेंटर करें */
+    gap: 5px;}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1em;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+text-align: center;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+        .product-card h3 {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+        .product-card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .stars {
+            color: #ff9800;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+            color: white;
+            background-color: #ff4d4d;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #e63939;
+        }
+footer {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header><div class="logo">Sunnify</div>
+<nav>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\new_page.html">HOME</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\products_newpage.html">PRODUCTS</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\features_newpage.html">FEATURES</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\about_newpage.html">ABOUT US</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\feedback_newpage.html">FEEDBACK</a>
+</nav>  
+<div class="actions">
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search for products..." onkeyup="searchProducts()">
+            <i class="fas fa-search" onclick="toggleSearchBar()"></i>
+        </div>
+        <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="cart-icon">
+            <img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG38.png" alt="Cart Icon">
+        </a>
+</div>    
+  
+            </header>
+    <div class="container">
+
+   <h2><span style="color: red;">Cleaning & Household</span></h2>
+        <div class="container">
+     <div class="product-grid">
+            <!-- Product 1 -->
+                <div class="product-card">
+                <img src="https://www.uke-jhb.co.za/wp-content/uploads/2019/10/COMFORT-FABRIC-CONDITIONER-INTENSE-PASSION-60-WASH-900ML.jpg" alt="Comfort Fabric Conditioner">
+                <h3>Comfort Fabric Conditioner</h3>
+                <p>₹220 (800ml)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+
+             <!-- Product 2 -->
+                <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/61CwN2uZ9yL._SL1000_.jpg" alt="Exo Dishwash Bar">
+                <h3>Exo Dishwash Bar</h3>
+                <p>₹35 (250g)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+
+             <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://aswaqrak.ae/pub/media/catalog/product/cache/9e61d75d633e5fc1a695bad0376a2475/6/2/6295120042069_2.jpg" alt="Dettol Floor Cleaner">
+                <h3>Dettol Floor Cleaner</h3>
+                <p>₹150 (500ml)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 4 -->
+             <div class="product-card">
+                <img src="https://res.fkhealthplus.com/incom/images/product/Exo-Safai-Stainless-Steel-Scrubber-1591946087-10047301-1.jpg" alt="Exo Steel Scrubber">
+                <h3>Exo Steel Scrubber</h3>
+                <p>₹30 (1 unit)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 5 -->
+           <div class="product-card">
+                <img src="https://apnafoodmarket.com/wp-content/uploads/2020/05/harpic.jpg" alt="Harpic Toilet Cleaner">
+                <h3>Harpic Toilet Cleaner</h3>
+                <p>₹120 (500ml)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 6 -->
+            <div class="product-card">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2021/6/WE/YN/VG/11198572/vim-liquid-dishwash-1000x1000.jpg" alt="Vim Dishwash Liquid">
+                <h3>Vim Dishwash Liquid</h3>
+                <p>₹110 (750ml)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 7 -->
+           <div class="product-card">
+                <img src="https://newassets.apollo247.com/pub/media/catalog/product/f/l/floral_1l_front.png" alt="Lizol Floor Cleaner">
+                <h3>Lizol Floor Cleaner</h3>
+                <p>₹180 (975ml)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 8 -->
+             <div class="product-card">
+                <img src="https://media.jointlook.com/customPhotos/productImages/colin-glass-surface-cleaner-liquid-spray-JLHGCL250-01.jpg" alt="Colin Glass Cleaner">
+                <h3>Colin Glass Cleaner</h3>
+                <p>₹90 (500ml)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 9 -->
+            <div class="product-card">
+                <img src="https://www.buy-pharma.md/img/uploads/10375-Himalaya-Gentle-Exfoliating-Daily-Face-Wash.jpg" alt="Himalaya Gentle Wash">
+                <h3>Himalaya Gentle Wash</h3>
+                <p>₹200 (1L)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 10 -->
+             <div class="product-card">
+                <img src="https://www.kroger.com/product/images/large/front/0003700040213" alt="Tide Detergent">
+                <h3>Tide Detergent</h3>
+                <p>₹340 (2kg)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 11 -->
+            <div class="product-card">
+                <img src="https://static.condisline.com/resize_1280x1347/images/catalog/large/812347.jpg" alt="Ariel Detergent">
+                <h3>Ariel Detergent</h3>
+                <p>₹380 (2kg)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 12 -->
+            <div class="product-card">
+                <img src="https://whim.com.mv/web/image/product.template/4200/image_1024?unique=e2d3886" alt="Pril Dishwash Gel">
+                <h3>Pril Dishwash Gel</h3>
+                <p>₹130 (750ml)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 13 -->
+            <div class="product-card">
+                <img src="https://www.vshop.sg/wp-content/uploads/2022/06/surf_excel.jpg" alt="Surf Excel">
+                <h3>Surf Excel</h3>
+                <p>₹400 (2kg)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 14 -->
+            <div class="product-card">
+                <img src="https://udaan.azureedge.net/products/zwmfkx34tmtrvh5up5q4.469Z" alt="Nirma Detergent">
+                <h3>Nirma Detergent</h3>
+                <p>₹180 (1kg)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 15 -->
+           <div class="product-card">
+                <img src="https://5.imimg.com/data5/PC/SU/QU/SELLER-8586032/good-night-power-activ-1000x1000.png" alt="Good Knight Mosquito Repellent">
+                <h3>Good Knight Mosquito Repellent</h3>
+                <p>₹120 (45ml)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+            <!-- Product 16 -->
+             <div class="product-card">
+                <img src="https://www.jiomart.com/images/product/600x600/491348878/odonil-room-freshener-spray-170-ml-buy-2-get-1-free-product-images-o491348878-p491348878-0-202203170208.jpg" alt="Odonil Room Freshener">
+                <h3>Odonil Room Freshener</h3>
+                <p>₹80 (50g)</p>
+                <div class="stars">★★★★★</div>
+                <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="btn">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Created by Shop With Sunny | All Rights Reserved
+    </footer>
+<script>
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const productCard = button.closest('.product-card');
+        const productName = productCard.querySelector('h3').textContent;
+        const productPrice = parseFloat(productCard.querySelector('p').textContent.match(/₹([\d.]+)/)[1]); // Correct price parsing
+
+        // Add product to cart
+        const existingItem = cart.find(item => item.name === productName);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({ name: productName, price: productPrice, quantity: 1 });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${productName} added to cart!`);
+    });
+});
+
+</script>
+</body>
+</html>

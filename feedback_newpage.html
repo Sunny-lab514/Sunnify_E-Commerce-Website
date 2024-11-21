@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Store</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+       /* Header styling */
+        header {
+            background-color: #f54a2a; /* Orange navbar */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+nav {
+    display: flex;
+    justify-content: center; 
+    gap: 20px; 
+    flex: 1; 
+}
+
+.search-container {
+    display: flex;
+    align-items: center; 
+    margin-right: 20px; 
+}
+
+.search-container input {
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s, opacity 0.3s;
+    visibility: hidden;
+}
+
+.search-container input.active {
+    width: 200px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-container i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+header .cart-icon {
+    margin-left: 20px; 
+}
+       header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+       header img {
+            width: 30px; /* Adjust image size */
+            height: auto;
+        }
+     nav {
+    display: flex;
+    justify-content: center; /* Center alignment */
+    gap: 20px;
+    flex-grow: 1; 
+}
+.actions {
+    display: flex;
+    align-items: center; 
+    gap: 5px;}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1em;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .feedback, .newsletter {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .feedback {
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        label {
+            font-size: 14px;
+            color: #555;
+            display: block;
+            margin-bottom: 8px;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #e64a19;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        footer a {
+            color: #ff5722;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .social-icons {
+            margin-top: 10px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: #555;
+            font-size: 20px;
+        }
+        .social-icons a:hover {
+            color: #ff5722;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Sunnify</div>
+        <nav>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\new_page.html">HOME</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\products_newpage.html">PRODUCTS</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\features_newpage.html">FEATURES</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\about_newpage.html">ABOUT US</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\feedback_newpage.html">FEEDBACK</a>
+        </nav>
+<div class="actions">
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search for products..." onkeyup="searchProducts()">
+            <i class="fas fa-search" onclick="toggleSearchBar()"></i>
+        </div>
+        <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="cart-icon">
+            <img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG38.png" alt="Cart Icon">
+        </a>
+</div>    
+
+    </header>
+        <div class="content">
+            <div class="column">
+                <h3>Sunnify</h3>
+                <p>Sunnify allows you to walk away from drudgery of grocery shopping and welcome an easy relaxed way of browsing and shoppping for groceries.Discover new products and shop for all your food and grocery needs from the comfort of your home or office.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com"><img src="https://www.freeiconspng.com/uploads/facebook-logo-3.png" alt="Facebook" width="20"></a>
+                    <a href="https://www.twitter.com"><img src="https://clipartcraft.com/images/twitter-logo-png-green-4.png" alt="Twitter" width="20"></a>
+                    <a href="https://www.instagram.com"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram" width="20"></a>
+                </div>
+            </div>
+
+    <div class="container">
+        <!-- Feedback Form -->
+        <div class="feedback">
+            <h2>Feedback</h2>
+            <form action="#" method="post">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="message">Suggestion</label>
+                <textarea id="message" name="message" rows="5" placeholder="Enter your feedback or suggestions" required></textarea>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="newsletter">
+            <h2>Newsletter</h2>
+            <p>Subscribe to our newsletter for the latest updates.</p>
+            <form action="#" method="post">
+                <label for="newsletter-email">Your Email</label>
+                <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Enter your email" required>
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Sunnify | All Rights Reserved</p>
+           </footer>
+</body>
+</html>

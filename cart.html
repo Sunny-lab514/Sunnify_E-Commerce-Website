@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #f54a2a; /* Orange navbar */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+nav {
+    display: flex;
+    justify-content: center; 
+    gap: 20px;
+    flex: 1;
+}
+
+.search-container {
+    display: flex;
+    align-items: center; /* सर्च आइकन और इनपुट को वर्टिकली सेंटर करें */
+    margin-right: 20px; /* थोड़ा दायां मार्जिन */
+}
+
+.search-container input {
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s, opacity 0.3s;
+    visibility: hidden;
+}
+
+.search-container input.active {
+    width: 200px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-container i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+header .cart-icon {
+    margin-left: 20px; /* सर्च आइकन और कार्ट के बीच थोड़ी जगह */
+}
+
+       header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+       header img {
+            width: 30px; /* Adjust image size */
+            height: auto;
+        }
+     nav {
+    display: flex;
+    justify-content: center; /* Center alignment */
+    gap: 20px;
+    flex-grow: 1; /* Nav को उपलब्ध space का उपयोग करने की अनुमति देगा */
+}
+.actions {
+    display: flex;
+    align-items: center; /* सर्च और कार्ट आइकन को वर्टिकली सेंटर करें */
+    gap: 5px;}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1em;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 14px;
+            color: white;
+            background-color: #ff4d4d;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #e63939;
+        }
+        .remove-btn {
+            background-color: #f5a623;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .remove-btn:hover {
+            background-color: #d4881f;
+        }
+        .empty-cart {
+            text-align: center;
+            font-size: 18px;
+            color: gray;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+<div class="logo">Sunnify</div>
+<nav>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\new_page.html">HOME</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\products_newpage.html">PRODUCTS</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\features_newpage.html">FEATURES</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\about_newpage.html">ABOUT US</a>
+<a href="C:\Users\SUNNY\OneDrive\Desktop\feedback_newpage.html">FEEDBACK</a>
+</nav>  
+<div class="actions">
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search for products..." onkeyup="searchProducts()">
+            <i class="fas fa-search" onclick="toggleSearchBar()"></i>
+        </div>
+        <a href="C:\Users\SUNNY\OneDrive\Desktop\cart.html" class="cart-icon">
+            <img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG38.png" alt="Cart Icon">
+        </a>
+</div>    
+    </header>
+    <div class="container">
+        <U><h2>Your Items in Cart</h2></U>
+        <div id="cart-items">
+            <!-- Items will be dynamically added here -->
+        </div>
+        <a href="#" class="btn" onclick="history.back(); return false;">Continue Shopping</a>
+        <button class="btn" id="remove-all-btn" style="display: none;" onclick="removeAllItems()">Remove All</button>
+    </div>
+
+    <script>
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsContainer = document.getElementById('cart-items');
+        const removeAllBtn = document.getElementById('remove-all-btn');
+
+        // Display Cart Items
+        function displayCart() {
+            cartItemsContainer.innerHTML = '';
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
+                removeAllBtn.style.display = 'none'; // Hide Remove All button
+            } else {
+                cartItems.forEach((item, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'cart-item';
+                    itemDiv.innerHTML = `
+                        <span>${item.name}</span>
+                        <span>Rs. ${item.price} x ${item.quantity}</span>
+                        <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+                    `;
+                    cartItemsContainer.appendChild(itemDiv);
+                });
+                removeAllBtn.style.display = 'inline-block'; // Show Remove All button
+            }
+        }
+
+        // Remove individual item from cart
+        function removeFromCart(index) {
+            cartItems.splice(index, 1); // Remove item from array
+            localStorage.setItem('cart', JSON.stringify(cartItems)); // Update localStorage
+            displayCart(); // Refresh the cart display
+        }
+
+        // Remove all items from cart
+        function removeAllItems() {
+            localStorage.removeItem('cart'); // Clear localStorage
+            cartItems.length = 0; // Clear cart array
+            displayCart(); // Refresh the cart display
+        }
+
+        // Initial call to display cart items
+        displayCart();
+    </script>
+</body>
+</html>
